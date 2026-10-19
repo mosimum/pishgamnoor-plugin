@@ -21,6 +21,8 @@ final class Activator {
 
         Settings::install_defaults();
         Product_Repository::seed_defaults();
+        // Also repairs legacy 1.1 escaped-Unicode meta on manual reactivation.
+        Product_Repository::repair_stored_json();
 
         update_option( 'pishgamnoor_studio_version', PISHGAMNOOR_STUDIO_VERSION );
         set_transient( 'pishgamnoor_studio_activated', 1, 120 );
