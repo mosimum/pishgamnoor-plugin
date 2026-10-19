@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       Pishgamnoor Studio
  * Plugin URI:        https://github.com/mosimum/pishgamnoor-plugin
- * Description:       استودیو نور سه‌بعدی پیشگام نور؛ نمایش محصولات با شورت‌کد، مدیریت محصولات و تنظیمات ظاهری.
- * Version:           1.3
+ * Description:       شبیه‌ساز سه‌بعدی محصولات پیشگام نور؛ نمایش محصولات با شورت‌کد، مدیریت محصولات و تنظیمات ظاهری.
+ * Version:           1.4
  * Requires at least: 6.0
  * Requires PHP:      7.4
  * Author:            Mostafa Moosavi
@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     exit;
 }
 
-define( 'PISHGAMNOOR_STUDIO_VERSION', '1.3' );
+define( 'PISHGAMNOOR_STUDIO_VERSION', '1.4' );
 define( 'PISHGAMNOOR_STUDIO_FILE', __FILE__ );
 define( 'PISHGAMNOOR_STUDIO_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PISHGAMNOOR_STUDIO_URL', plugin_dir_url( __FILE__ ) );

@@ -71,7 +71,7 @@ $field = static function ( $key, $label, $type = 'text', $args = array() ) use (
             <span class="pn-admin-mark" aria-hidden="true">✦</span>
             <div>
                 <h1>اختصاصی پیشگام نور</h1>
-                <p>استودیو نور سه‌بعدی، مدیریت محصولات و تنظیمات ظاهری</p>
+                <p>پیشگام نور؛ مدیریت محصولات و تنظیمات ظاهری</p>
             </div>
         </div>
         <div class="pn-admin-meta">

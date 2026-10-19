@@ -1500,7 +1500,7 @@ function renderRail() {
   const rail = $('#studioRail');
   if (!rail) return;
   rail.innerHTML = Object.values(PRODUCTS).map((p) => `
-    <button class="rail-item" data-product="${p.id}" role="tab" aria-selected="${p.id === state.product}" aria-label="${p.name}">
+    <button class="rail-item" data-product="${p.id}" aria-pressed="${p.id === state.product}" aria-label="${p.name}">
       <span class="rail-thumb"><img src="${p.image}" alt="" loading="lazy"></span>
       <span class="rail-text"><strong>${p.short}</strong><span>${p.family}</span></span>
     </button>
@@ -1586,7 +1586,7 @@ function renderProductUI() {
   $$('.rail-item').forEach((btn) => {
     const active = btn.dataset.product === state.product;
     btn.classList.toggle('is-active', active);
-    btn.setAttribute('aria-selected', String(active));
+    btn.setAttribute('aria-pressed', String(active));
   });
 }
 
@@ -2049,9 +2049,44 @@ function animate(now) {
 
 /* ---------------- UI bindings ---------------- */
 
+function initMobileTabs() {
+  const shell = $('.studio-shell');
+  const tabs = $$('.studio-mobile-tab');
+  if (!shell || !tabs.length) return;
+
+  const setTab = (name, focus = false) => {
+    shell.dataset.mobileTab = name;
+    tabs.forEach((tab) => {
+      const active = tab.dataset.studioTab === name;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      if (active && focus) tab.focus();
+    });
+  };
+
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => setTab(tab.dataset.studioTab));
+
+    tab.addEventListener('keydown', (event) => {
+      if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+      event.preventDefault();
+
+      let next = index;
+      if ('ArrowLeft' === event.key) next = (index + 1) % tabs.length;
+      if ('ArrowRight' === event.key) next = (index - 1 + tabs.length) % tabs.length;
+      if ('Home' === event.key) next = 0;
+      if ('End' === event.key) next = tabs.length - 1;
+
+      setTab(tabs[next].dataset.studioTab, true);
+    });
+  });
+
+  setTab('products');
+}
+
 function bindUI() {
-  const rotateButton = $('#studioRotate');
-  if (rotateButton) {
+  const rotateButton = $('#studioRotate');  if (rotateButton) {
     rotateButton.setAttribute('aria-pressed', String(state.autoRotate));
     rotateButton.classList.toggle('is-active', state.autoRotate);
   }
@@ -2209,6 +2244,7 @@ function init() {
   updatePowerUI();
   updateDimUI();
   bindUI();
+  initMobileTabs();
 
   // Bridge from the alphabet section
   window.addEventListener('pn:select-product', (e) => {

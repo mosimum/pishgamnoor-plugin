@@ -129,7 +129,7 @@ final class Admin {
             $products_url = admin_url( 'edit.php?post_type=' . Product::POST_TYPE );
             ?>
             <div class="notice notice-success is-dismissible pn-admin-notice">
-                <p><strong>استودیو نور پیشگام نور فعال شد.</strong></p>
+                <p><strong>پیشگام نور فعال شد.</strong></p>
                 <p>
                     شورت‌کد نمایش:
                     <code>[pishgamnoor_studio]</code>

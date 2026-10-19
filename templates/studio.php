@@ -47,9 +47,9 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
         <style><?php echo $custom_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- admin-controlled CSS, tags stripped on save. ?></style>
     <?php endif; ?>
 
-    <section class="studio-section" aria-label="استودیو نور">
+    <section class="studio-section" aria-label="پیشگام نور">
         <div class="pn-container">
-            <div class="studio-shell">
+            <div class="studio-shell"<?php echo $show['rail'] ? ' data-mobile-tab="products"' : ''; ?>>
                 <div class="studio-stage" id="studioStage">
                     <canvas id="studioCanvas" tabindex="0" aria-label="نمای سه‌بعدی تعاملی محصول. با کلیدهای جهت‌دار بچرخانید و با Enter روشن یا خاموش کنید."></canvas>
 
@@ -98,7 +98,14 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
                     <div class="studio-hint">درگ برای چرخش · اسکرول برای زوم · Enter برای روشن/خاموش</div>
                 </div>
 
-                <aside class="studio-panel" aria-label="تنظیمات و مشخصات محصول">
+                <?php if ( $show['rail'] ) : ?>
+                    <div class="studio-mobile-tabs" role="tablist" aria-label="بخش‌های پیشگام نور">
+                        <button type="button" class="studio-mobile-tab is-active" id="studioTabProducts" role="tab" aria-selected="true" aria-controls="studioRail" data-studio-tab="products" tabindex="0">محصولات</button>
+                        <button type="button" class="studio-mobile-tab" id="studioTabFeatures" role="tab" aria-selected="false" aria-controls="studioPanel" data-studio-tab="features" tabindex="-1">انتخاب ویژگی</button>
+                    </div>
+                <?php endif; ?>
+
+                <aside class="studio-panel" id="studioPanel" <?php echo $show['rail'] ? 'role="tabpanel" aria-labelledby="studioTabFeatures"' : 'aria-label="تنظیمات و مشخصات محصول"'; ?>>
                     <div class="studio-panel-head">
                         <span class="studio-family" id="studioFamily"><?php echo esc_html( $default['family'] ); ?></span>
                         <h3 id="studioTitle"><?php echo esc_html( $default['name'] ); ?></h3>
@@ -106,7 +113,7 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
                     </div>
 
                     <?php if ( $show['finish'] ) : ?>
-                        <div class="config-block">
+                        <div class="config-block config-block-finish">
                             <div class="config-label">
                                 <span>رنگ بدنه</span>
                                 <b id="finishLabel"><?php echo esc_html( $finishes[0]['label'] ?? '—' ); ?></b>
@@ -120,7 +127,7 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
                     <?php endif; ?>
 
                     <?php if ( $show['cct'] ) : ?>
-                        <div class="config-block">
+                        <div class="config-block config-block-cct">
                             <div class="config-label">
                                 <span>دمای رنگ</span>
                                 <b id="cctLabel"><?php echo esc_html( number_format_i18n( $default_cct ) ); ?>K</b>
@@ -134,7 +141,7 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
                     <?php endif; ?>
 
                     <?php if ( $show['dimmer'] ) : ?>
-                        <div class="config-block">
+                        <div class="config-block config-block-dimmer">
                             <div class="config-label">
                                 <span>شدت نور</span>
                                 <b id="dimLabel">۱۰۰٪</b>
@@ -161,9 +168,9 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
                 </aside>
 
                 <?php if ( $show['rail'] ) : ?>
-                    <div class="studio-rail" id="studioRail" role="tablist" aria-label="انتخاب محصول">
+                    <div class="studio-rail" id="studioRail" role="tabpanel" aria-labelledby="studioTabProducts">
                         <?php foreach ( $products as $product ) : ?>
-                            <button class="rail-item<?php echo $product['id'] === $default_id ? ' is-active' : ''; ?>" data-product="<?php echo esc_attr( $product['id'] ); ?>" role="tab" aria-selected="<?php echo $product['id'] === $default_id ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr( $product['name'] ); ?>">
+                            <button class="rail-item<?php echo $product['id'] === $default_id ? ' is-active' : ''; ?>" data-product="<?php echo esc_attr( $product['id'] ); ?>" aria-pressed="<?php echo $product['id'] === $default_id ? 'true' : 'false'; ?>" aria-label="<?php echo esc_attr( $product['name'] ); ?>">
                                 <span class="rail-thumb"><img src="<?php echo esc_url( $product['image'] ); ?>" alt="" loading="lazy"></span>
                                 <span class="rail-text"><strong><?php echo esc_html( $product['short'] ); ?></strong><span><?php echo esc_html( $product['family'] ); ?></span></span>
                             </button>
