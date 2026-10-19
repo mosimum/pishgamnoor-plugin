@@ -488,6 +488,7 @@ http://127.0.0.1:8077/
 - **مخزن GitHub:** `https://github.com/mosimum/pishgamnoor-plugin`
 - **Release 1.2:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
 - **Release 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
+- **فایل نصب محلی:** `C:\Users\mostafa\Desktop\site-session\Pishgamnoor-plugin-1.2.zip`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
