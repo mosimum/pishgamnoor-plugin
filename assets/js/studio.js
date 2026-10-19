@@ -1516,7 +1516,7 @@ function renderFinishes() {
   if (!wrap) return;
   const p = getProduct();
   wrap.innerHTML = p.finishes.map((f) => `
-    <button type="button" data-finish="${f.id}" style="--sw:${f.color}" aria-label="${f.label}" aria-pressed="${f.id === state.finish}"></button>
+    <button type="button" data-finish="${f.id}" class="${f.id === state.finish ? 'is-active' : ''}" style="--sw:${f.color}" aria-label="${f.label}" aria-pressed="${f.id === state.finish}"></button>
   `).join('');
   $$('button', wrap).forEach((btn) => {
     btn.addEventListener('click', () => {

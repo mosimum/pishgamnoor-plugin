@@ -56,12 +56,9 @@ final class Shortcode {
                 'font_size'         => $settings['font_size'],
                 'title_size'        => $settings['title_size'],
                 'small_size'        => $settings['small_size'],
-                'heading_size'      => $settings['heading_size'],
                 'shell_height'      => $settings['shell_height'],
                 'stage_height'      => $settings['stage_height'],
                 'section_padding'   => $settings['section_padding'],
-                'heading'           => $settings['heading'],
-                'subheading'        => $settings['subheading'],
                 'show_rail'         => $settings['show_rail'],
                 'show_finish'       => $settings['show_finish'],
                 'show_cct'          => $settings['show_cct'],
@@ -107,8 +104,6 @@ final class Shortcode {
         $custom_css  = (string) $settings['custom_css'];
         $root_id     = 'pn-studio-' . substr( md5( uniqid( '', true ) ), 0, 8 );
         $root_class  = 'pn-studio ' . sanitize_html_class( $atts['class'] );
-        $heading     = sanitize_text_field( $atts['heading'] );
-        $subheading  = sanitize_text_field( $atts['subheading'] );
         $link_label  = sanitize_text_field( $atts['product_link_label'] );
 
         $js_settings = array(
@@ -149,8 +144,6 @@ final class Shortcode {
             'custom_css'  => $custom_css,
             'root_id'     => $root_id,
             'root_class'  => $root_class,
-            'heading'     => $heading,
-            'subheading'  => $subheading,
             'link_label'  => $link_label,
             'atts'        => $atts,
         );

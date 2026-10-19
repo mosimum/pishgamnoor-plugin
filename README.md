@@ -2,10 +2,10 @@
 
 پلاگین اختصاصی وردپرس برای **استودیو نور سه‌بعدی پیشگام نور**.
 
-- **نسخه:** 1.2
+- **نسخه:** 1.3
 - **توسعه‌دهنده:** Mostafa Moosavi
 - **مخزن:** https://github.com/mosimum/pishgamnoor-plugin
-- **Release 1.2:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
+- **Release 1.3:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.3`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
@@ -31,7 +31,7 @@
 
 ## نصب
 
-1. فایل ZIP نسخه 1.2 را از GitHub Releases دانلود کنید.
+1. فایل ZIP نسخه 1.3 را از GitHub Releases دانلود کنید.
 2. در وردپرس به **افزونه‌ها ← افزودن ← بارگذاری افزونه** بروید.
 3. ZIP را بارگذاری و پلاگین را فعال کنید.
 4. از منوی **اختصاصی پیشگام نور** تنظیمات و محصولات را مدیریت کنید.
@@ -60,9 +60,8 @@
 | `product` | شناسه محصول پیش‌فرض (slug) |
 | `accent`, `bg`, `panel`, `panel_2`, `text`, `muted` | رنگ‌های همان نمونه |
 | `radius` | گردی گوشه‌ها (px) |
-| `font_size`, `title_size`, `small_size`, `heading_size` | اندازه فونت‌ها |
+| `font_size`, `title_size`, `small_size` | اندازه فونت‌ها |
 | `shell_height`, `stage_height`, `section_padding` | ابعاد و فاصله |
-| `heading`, `subheading` | متن تیتر و توضیح |
 | `show_rail` | نمایش ریل محصولات |
 | `show_finish` | نمایش انتخاب رنگ |
 | `show_cct` | نمایش دمای رنگ |

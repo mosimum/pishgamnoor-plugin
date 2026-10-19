@@ -114,7 +114,6 @@ $field = static function ( $key, $label, $type = 'text', $args = array() ) use (
                     <div class="pn-grid pn-grid-2">
                         <?php
                         $field( 'font_family', 'فونت', 'select', array( 'options' => $font_options, 'desc' => 'فونت IRANSansX همراه پلاگین عرضه می‌شود.' ) );
-                        $field( 'heading_size', 'اندازه تیتر بخش (px)', 'number', array( 'min' => 28, 'max' => 72 ) );
                         $field( 'font_size', 'اندازه فونت پایه پنل (px)', 'number', array( 'min' => 12, 'max' => 22 ) );
                         $field( 'title_size', 'اندازه عنوان محصول (px)', 'number', array( 'min' => 18, 'max' => 40 ) );
                         $field( 'small_size', 'اندازه فونت ریز (px)', 'number', array( 'min' => 10, 'max' => 18 ) );
@@ -122,13 +121,6 @@ $field = static function ( $key, $label, $type = 'text', $args = array() ) use (
                         $field( 'shell_height', 'ارتفاع پوسته استودیو (px)', 'number', array( 'min' => 600, 'max' => 1000 ) );
                         $field( 'stage_height', 'حداقل ارتفاع استیج (px)', 'number', array( 'min' => 400, 'max' => 1000 ) );
                         $field( 'section_padding', 'فاصله بالا/پایین بخش (px)', 'number', array( 'min' => 0, 'max' => 120 ) );
-                        ?>
-                    </div>
-
-                    <div class="pn-grid pn-grid-2">
-                        <?php
-                        $field( 'heading', 'تیتر بخش استودیو', 'text' );
-                        $field( 'subheading', 'توضیح کوتاه بخش', 'textarea', array( 'rows' => 3 ) );
                         ?>
                     </div>
                 </section>

@@ -11,8 +11,6 @@
  * @var string $custom_css
  * @var string $root_id
  * @var string $root_class
- * @var string $heading
- * @var string $subheading
  * @var string $link_label
  * @var array  $atts
  */
@@ -32,8 +30,6 @@ $cct_colors   = array(
 $finishes     = ! empty( $default['finishes'] ) ? $default['finishes'] : array();
 $specs        = ! empty( $default['specs'] ) ? $default['specs'] : array();
 $default_url  = ! empty( $default['url'] ) ? $default['url'] : '';
-$heading      = $heading ? $heading : 'محصول را در دست بگیرید، قبل از اینکه به پروژه برود.';
-$subheading   = $subheading ? $subheading : 'چرخش ۳۶۰ درجه، انتخاب رنگ بدنه و دمای نور، شدت روشنایی و کلید روشن/خاموش.';
 $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : 'رنگ‌ها و دمای نور تقریبی‌اند. برای تأیید نهایی، نمونه فیزیکی و دیتاشیت محصول را دریافت کنید.';
 ?>
 
@@ -51,19 +47,8 @@ $disclaimer   = ! empty( $settings['disclaimer'] ) ? $settings['disclaimer'] : '
         <style><?php echo $custom_css; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- admin-controlled CSS, tags stripped on save. ?></style>
     <?php endif; ?>
 
-    <section class="studio-section" aria-labelledby="<?php echo esc_attr( $root_id . '-title' ); ?>">
+    <section class="studio-section" aria-label="استودیو نور">
         <div class="pn-container">
-            <div class="pn-studio-head">
-                <div>
-                    <span class="pn-studio-kicker">۰۲ / استودیو نور</span>
-                    <h2 id="<?php echo esc_attr( $root_id . '-title' ); ?>"><?php echo esc_html( $heading ); ?></h2>
-                </div>
-                <div class="pn-studio-side">
-                    <p><?php echo esc_html( $subheading ); ?></p>
-                    <span class="pn-studio-count"><?php echo esc_html( number_format_i18n( count( $products ) ) ); ?> محصول منتخب / نمایش زنده با WebGL</span>
-                </div>
-            </div>
-
             <div class="studio-shell">
                 <div class="studio-stage" id="studioStage">
                     <canvas id="studioCanvas" tabindex="0" aria-label="نمای سه‌بعدی تعاملی محصول. با کلیدهای جهت‌دار بچرخانید و با Enter روشن یا خاموش کنید."></canvas>

@@ -117,7 +117,6 @@
 | ۱۰ | مجله نور | سه مقاله موجود سایت |
 | ۱۱ | پرسش‌های متداول | ۶ سؤال با accordion |
 | ۱۲ | شروع پروژه | فرم مشاوره + اطلاعات تماس + آدرس‌ها |
-| ۱۳ | انتشار نسخه 1.2 پلاگین، رفع خرابی نام رنگ‌ها/مشخصات و مهاجرت داده‌های 1.1 |
 | ۱۳ | فوتر | ناوبری، تماس، شبکه‌های اجتماعی، لوگو |
 
 ---
@@ -475,6 +474,7 @@ http://127.0.0.1:8077/
 | ۱۱ | بزرگ‌تر کردن فونت‌های استودیو در دسکتاپ/موبایل، اصلاح منوی موبایل و خوانا کردن متن هشدار |
 | ۱۲ | ساخت پلاگین اختصاصی وردپرس Pishgamnoor Studio نسخه 1.1، مدیریت محصولات، تنظیمات و انتشار GitHub |
 | ۱۳ | انتشار نسخه 1.2 پلاگین، رفع خرابی نام رنگ‌ها/مشخصات و مهاجرت داده‌های 1.1 |
+| ۱۴ | انتشار نسخه 1.3 پلاگین: حذف هدر استودیو، اصلاح عرض موبایل و حاشیه رنگ انتخاب‌شده |
 
 ---
 
@@ -483,12 +483,13 @@ http://127.0.0.1:8077/
 ### مشخصات
 
 - **پوشه پلاگین:** `C:\Users\mostafa\Desktop\site-session\Pishgamnoor-plugin`
-- **نسخه فعلی:** `1.2`
+- **نسخه فعلی:** `1.3`
 - **توسعه‌دهنده:** Mostafa Moosavi
 - **مخزن GitHub:** `https://github.com/mosimum/pishgamnoor-plugin`
 - **Release 1.2:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
+- **Release 1.3:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.3`
 - **Release 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
-- **فایل نصب محلی:** `C:\Users\mostafa\Desktop\site-session\Pishgamnoor-plugin-1.2.zip`
+- **فایل نصب محلی:** `C:\Users\mostafa\Desktop\site-session\Pishgamnoor-plugin-1.3.zip`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
@@ -561,6 +562,14 @@ Pishgamnoor-plugin/
   - بدون خطای کنسولی (به‌جز favicon در preview محلی)
 - تست ذخیره/بازیابی متای JSON و مهاجرت داده‌های 1.1: ALL PASS
 
+### اصلاحات نسخه 1.3
+
+- حذف کامل HTML و CSS کلاس `pn-studio-head` و متن‌های تیتر/توضیح
+- حذف فیلدهای تیتر و توضیح و اندازه تیتر از تنظیمات پیشخوان
+- اصلاح عرض ۱۰۰ درصد بخش‌های رنگ، CCT و جدول مشخصات در موبایل
+- افزودن حاشیه زرد سازمانی دور رنگ انتخاب‌شده
+- تست موبایل ۳۹۰px و دسکتاپ ۱۴۴۰px
+
 ### اصلاحات نسخه 1.2
 
 - رفع نمایش نام رنگ‌ها و مشخصات فنی به‌صورت `u06af...`
@@ -570,8 +579,9 @@ Pishgamnoor-plugin/
 
 ### انتشار
 
-- نسخه‌های 1.1 و 1.2 در GitHub Release منتشر شدند.
+- نسخه‌های 1.1، 1.2 و 1.3 در GitHub Release منتشر شدند.
 - Release 1.2: `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
+- Release 1.3: `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.3`
 - فایل ZIP با ریشه `Pishgamnoor-plugin/` به Release پیوست شد.
 - GitHub Actions برای Releaseهای بعدی:
   - `.github/workflows/release.yml`
