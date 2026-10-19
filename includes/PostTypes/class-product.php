@@ -30,6 +30,13 @@ final class Product {
             'spotre'      => 'اسپات RE / روکار',
             'beta2'       => 'بتا ۲ / دیواری',
         );
+
+        /**
+         * Filter available procedural 3D models.
+         *
+         * @param array $models
+         */
+        return apply_filters( 'pishgamnoor_studio_models', $models );
     }
 
     public static function stages() {

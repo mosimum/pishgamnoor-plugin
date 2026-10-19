@@ -48,6 +48,7 @@ final class Settings {
             'show_fullscreen'          => 1,
             'show_product_link'        => 1,
             'product_link_label'       => 'مشاهده محصول',
+            'disclaimer'               => 'رنگ‌ها و دمای نور تقریبی‌اند. برای تأیید نهایی، نمونه فیزیکی و دیتاشیت محصول را دریافت کنید.',
             'custom_css'               => '',
             'delete_data_on_uninstall' => 0,
         );

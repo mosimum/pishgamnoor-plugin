@@ -40,7 +40,10 @@ if ( empty( $specs ) ) {
 }
 
 $ccts = array_map( 'intval', (array) $ccts );
-$camera_val = static function ( $group, $key, $default = '' ) use ( $camera ) {
+$camera_val = static function ( $group, $key = null, $default = '' ) use ( $camera ) {
+    if ( null === $key ) {
+        return isset( $camera[ $group ] ) && ! is_array( $camera[ $group ] ) ? $camera[ $group ] : $default;
+    }
     if ( isset( $camera[ $group ][ $key ] ) ) {
         return $camera[ $group ][ $key ];
     }
