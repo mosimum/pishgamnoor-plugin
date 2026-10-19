@@ -1,0 +1,292 @@
+[
+  {
+    "slug": "gamma",
+    "title": "چراغ خطی کنافی گاما",
+    "model": "gamma",
+    "family": "خانواده گاما",
+    "short": "گاما / خطی کنافی",
+    "letter": "Γ",
+    "description": "خط نوری یکپارچه در سقف کناف؛ بدون قطع، بدون خیرگی.",
+    "url": "https://pishgamnoor.com/products/gamma-kd/",
+    "stage": "indoor",
+    "image": "gamma-kd.webp",
+    "order": 1,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۲۵ وات / متر"],
+      ["شار نوری", "۲۵۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP43"],
+      ["مقطع پروفیل", "۳۰.۹ × ۱۳ mm"],
+      ["نوع نصب", "کنافی"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۳ تا ۶ سال"]
+    ]
+  },
+  {
+    "slug": "theta",
+    "title": "چراغ خطی کرو تتا C",
+    "model": "theta",
+    "family": "خانواده تتا",
+    "short": "تتا / خطی منحنی",
+    "letter": "Θ",
+    "description": "فرم منحنی؛ نور به‌عنوان یک حجم پیوسته.",
+    "url": "https://pishgamnoor.com/products/theta-c-decorative/",
+    "stage": "indoor",
+    "image": "theta-c.webp",
+    "order": 2,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۲۷ تا ۵۴ وات / متر"],
+      ["شار نوری", "۵۲۰۰ تا ۲۲۶۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP43"],
+      ["مقطع پروفیل", "۶۰ تا ۱۵۰ × ۶۷ mm"],
+      ["نوع نصب", "آویز / توکار"],
+      ["سیستم هوشمند", "DALI 2"],
+      ["گارانتی", "۳ تا ۶ سال"]
+    ]
+  },
+  {
+    "slug": "omega",
+    "title": "چراغ خطی امگا ایستاده",
+    "model": "omega",
+    "family": "خانواده امگا",
+    "short": "امگا / خطی ایستاده",
+    "letter": "Ω",
+    "description": "یک خط ایستاده؛ نور از درون بدنه به فضا می‌ریزد.",
+    "url": "https://pishgamnoor.com/products/omega-stand/",
+    "stage": "indoor",
+    "image": "omega-stand.webp",
+    "order": 3,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۱۰ تا ۲۰ وات / متر"],
+      ["شار نوری", "۱۰۰۰ تا ۲۰۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP43"],
+      ["مقطع پروفیل", "۱۶ mm"],
+      ["نوع نصب", "روکار / آویز"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۳ تا ۶ سال"]
+    ]
+  },
+  {
+    "slug": "zeous",
+    "title": "چراغ ایستاده محوطه زئوس ۲",
+    "model": "zeous",
+    "family": "خانواده زئوس",
+    "short": "زئوس / محوطه",
+    "letter": "Ζ",
+    "description": "فرم درخت‌مانند؛ دو بازو، دو لایه نور برای مسیر و محوطه.",
+    "url": "https://pishgamnoor.com/products/zeous-2/",
+    "stage": "outdoor",
+    "image": "zeous-2.webp",
+    "order": 4,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.3, "roughness": 0.58 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#42464c", "metalness": 0.44, "roughness": 0.46 },
+      { "id": "bronze", "label": "برنز تیره", "color": "#5c4433", "metalness": 0.38, "roughness": 0.5 }
+    ],
+    "ccts": [3000, 4000, 5000],
+    "specs": [
+      ["توان", "۱۷ تا ۳۴ وات"],
+      ["شار نوری", "۲۳۰۰ تا ۴۶۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP65"],
+      ["ارتفاع", "۲۰۰ تا ۲۵۰ سانتی‌متر"],
+      ["نوع نصب", "روکار / رول‌بولت"],
+      ["سیستم هوشمند", "DALI 2 / KNX"],
+      ["گارانتی", "۳ سال"]
+    ]
+  },
+  {
+    "slug": "magnet",
+    "title": "چراغ مگنتی لنزی ۲۴",
+    "model": "magnet",
+    "family": "خانواده مگنت",
+    "short": "مگنت / لنزی ۲۴",
+    "letter": "Μ",
+    "description": "۲۴ لنز در یک پروفیل باریک؛ نور دقیق و قابل جابه‌جایی.",
+    "url": "https://pishgamnoor.com/products/magnet-lenz-24/",
+    "stage": "indoor",
+    "image": "magnet-lenz-24.webp",
+    "order": 5,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000],
+    "specs": [
+      ["توان", "۲۴ وات / متر"],
+      ["شار نوری", "۲۴۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP44"],
+      ["تعداد لنز", "۲۴ عدد"],
+      ["نوع نصب", "کلیک روی ریل مگنتی"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۳ سال"]
+    ]
+  },
+  {
+    "slug": "spot2r",
+    "title": "چراغ اسپات توکار دوگانه ۲R",
+    "model": "spot2r",
+    "family": "خانواده اسپات",
+    "short": "اسپات ۲R / دوگانه",
+    "letter": "Σ",
+    "description": "دو هد تنظیم‌پذیر در یک پلیت توکار؛ نور دقیق برای گالری و فضای تجاری.",
+    "url": "https://pishgamnoor.com/products/spot-2r-20/",
+    "stage": "indoor",
+    "image": "spot-2r-20.webp",
+    "order": 6,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۲ × ۲۰ وات"],
+      ["شار نوری", "۲ × ۱۸۰۰ لومن"],
+      ["CRI", "۸۰"],
+      ["درجه حفاظت", "IP44"],
+      ["ابعاد", "۱۵۵ × ۸۰ × ۲۰۵ mm"],
+      ["نوع نصب", "توکار"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۲ سال"]
+    ]
+  },
+  {
+    "slug": "omegalinear",
+    "title": "چراغ خطی امگا آویز",
+    "model": "omegalinear",
+    "family": "خانواده امگا",
+    "short": "امگا / خطی آویز",
+    "letter": "Ω",
+    "description": "خط نوری باریک و آویز؛ نور یکنواخت روی میز و دیوار.",
+    "url": "https://pishgamnoor.com/products/omega-linear-light/",
+    "stage": "indoor",
+    "image": "omega-linear.webp",
+    "order": 7,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۱۰ تا ۲۰ وات / متر"],
+      ["شار نوری", "۱۰۰۰ تا ۲۰۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP43"],
+      ["مقطع پروفیل", "۱۶ mm"],
+      ["نوع نصب", "آویز / روکار"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۳ تا ۶ سال"]
+    ]
+  },
+  {
+    "slug": "inout",
+    "title": "چراغ توکار تنظیم‌پذیر ایناوت",
+    "model": "inout",
+    "family": "خانواده اسپات",
+    "short": "ایناوت / توکار",
+    "letter": "Ι",
+    "description": "اسپات توکار با هد متحرک؛ نور دقیق روی تابلو، ویترین و جزئیات.",
+    "url": "https://pishgamnoor.com/products/inout/",
+    "stage": "indoor",
+    "image": "inout.webp",
+    "order": 8,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۷ وات"],
+      ["شار نوری", "۷۰۰ لومن"],
+      ["CRI", "بالای ۹۵"],
+      ["درجه حفاظت", "IP44"],
+      ["قطر چراغ", "۵۰ mm"],
+      ["نوع نصب", "توکار / سوراخ ۴۵ mm"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۲ سال"]
+    ]
+  },
+  {
+    "slug": "spotre",
+    "title": "چراغ اسپات روکار سه‌گانه RE",
+    "model": "spotre",
+    "family": "خانواده اسپات",
+    "short": "اسپات RE / روکار",
+    "letter": "Ρ",
+    "description": "سه هد روکار روی یک بار؛ نور جهت‌دار برای دیوار و فضای تجاری.",
+    "url": "https://pishgamnoor.com/products/spot-re/",
+    "stage": "indoor",
+    "image": "spot-re.webp",
+    "order": 9,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۳۰ وات"],
+      ["شار نوری", "۲۷۰۰ لومن"],
+      ["CRI", "۸۰"],
+      ["درجه حفاظت", "IP44"],
+      ["ابعاد", "۱۶۰ × ۷۰ mm"],
+      ["نوع نصب", "روکار"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۲ سال"]
+    ]
+  },
+  {
+    "slug": "beta2",
+    "title": "چراغ خطی دیواری بتا ۲",
+    "model": "beta2",
+    "family": "خانواده بتا",
+    "short": "بتا ۲ / دیواری",
+    "letter": "Β",
+    "description": "خط عمودی با نور غیرمستقیم؛ هاله‌ای از نور روی دیوار.",
+    "url": "https://pishgamnoor.com/products/beta-2-decorative/",
+    "stage": "indoor",
+    "image": "beta-2.webp",
+    "order": 10,
+    "finishes": [
+      { "id": "black", "label": "مشکی مات", "color": "#1b1c22", "metalness": 0.34, "roughness": 0.56 },
+      { "id": "white", "label": "سفید مات", "color": "#e9e5db", "metalness": 0.14, "roughness": 0.62 },
+      { "id": "graphite", "label": "گرافیتی", "color": "#4a4d53", "metalness": 0.46, "roughness": 0.44 }
+    ],
+    "ccts": [3000, 4000, 5000, 6000],
+    "specs": [
+      ["توان", "۱۰ تا ۲۰ وات / متر"],
+      ["شار نوری", "۱۰۰۰ تا ۲۰۰۰ لومن"],
+      ["CRI", "بالای ۹۰"],
+      ["درجه حفاظت", "IP43"],
+      ["مقطع پروفیل", "۱۷ × ۱۳ mm"],
+      ["نوع نصب", "دیواری"],
+      ["سیستم هوشمند", "Zigbee / KNX"],
+      ["گارانتی", "۳ تا ۶ سال"]
+    ]
+  }
+]
