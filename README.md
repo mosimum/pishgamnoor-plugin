@@ -2,10 +2,10 @@
 
 پلاگین اختصاصی وردپرس برای **استودیو نور سه‌بعدی پیشگام نور**.
 
-- **نسخه:** 1.1
+- **نسخه:** 1.2
 - **توسعه‌دهنده:** Mostafa Moosavi
 - **مخزن:** https://github.com/mosimum/pishgamnoor-plugin
-- **Release 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
+- **Release 1.2:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
@@ -31,7 +31,7 @@
 
 ## نصب
 
-1. فایل ZIP نسخه 1.1 را از GitHub Releases دانلود کنید.
+1. فایل ZIP نسخه 1.2 را از GitHub Releases دانلود کنید.
 2. در وردپرس به **افزونه‌ها ← افزودن ← بارگذاری افزونه** بروید.
 3. ZIP را بارگذاری و پلاگین را فعال کنید.
 4. از منوی **اختصاصی پیشگام نور** تنظیمات و محصولات را مدیریت کنید.

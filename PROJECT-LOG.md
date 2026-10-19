@@ -117,6 +117,7 @@
 | ۱۰ | مجله نور | سه مقاله موجود سایت |
 | ۱۱ | پرسش‌های متداول | ۶ سؤال با accordion |
 | ۱۲ | شروع پروژه | فرم مشاوره + اطلاعات تماس + آدرس‌ها |
+| ۱۳ | انتشار نسخه 1.2 پلاگین، رفع خرابی نام رنگ‌ها/مشخصات و مهاجرت داده‌های 1.1 |
 | ۱۳ | فوتر | ناوبری، تماس، شبکه‌های اجتماعی، لوگو |
 
 ---
@@ -473,6 +474,7 @@ http://127.0.0.1:8077/
 | ۱۰ | حذف حروف از تامبنیل‌ها، اصلاح فول‌اسکرین، یکسان‌سازی radius و نصب توکار Gamma |
 | ۱۱ | بزرگ‌تر کردن فونت‌های استودیو در دسکتاپ/موبایل، اصلاح منوی موبایل و خوانا کردن متن هشدار |
 | ۱۲ | ساخت پلاگین اختصاصی وردپرس Pishgamnoor Studio نسخه 1.1، مدیریت محصولات، تنظیمات و انتشار GitHub |
+| ۱۳ | انتشار نسخه 1.2 پلاگین، رفع خرابی نام رنگ‌ها/مشخصات و مهاجرت داده‌های 1.1 |
 
 ---
 
@@ -481,10 +483,11 @@ http://127.0.0.1:8077/
 ### مشخصات
 
 - **پوشه پلاگین:** `C:\Users\mostafa\Desktop\site-session\Pishgamnoor-plugin`
-- **نسخه پایه:** `1.1`
+- **نسخه فعلی:** `1.2`
 - **توسعه‌دهنده:** Mostafa Moosavi
 - **مخزن GitHub:** `https://github.com/mosimum/pishgamnoor-plugin`
-- **Release ???? 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
+- **Release 1.2:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
+- **Release 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
@@ -555,10 +558,19 @@ Pishgamnoor-plugin/
   - فول‌اسکرین Native: 1440×1000
   - خروج از فول‌اسکرین: OK
   - بدون خطای کنسولی (به‌جز favicon در preview محلی)
+- تست ذخیره/بازیابی متای JSON و مهاجرت داده‌های 1.1: ALL PASS
 
-### اصلاحات نهایی قبل از تحویل\n\n- اصلاح بازگشت `Product::models()` و لیست مدل‌های سه‌بعدی\n- اصلاح closure فیلدهای دوربین در متاباکس محصول\n- افزودن مقدار پیش‌فرض متن هشدار (disclaimer) به تنظیمات\n- اجرای مجدد lint و smoke test قالب‌های پیشخوان\n\n### انتشار
+### اصلاحات نسخه 1.2
 
-- نسخه 1.1 در GitHub Release منتشر شد.
+- رفع نمایش نام رنگ‌ها و مشخصات فنی به‌صورت `u06af...`
+- اصلاح ذخیره JSON متای محصول با `JSON_UNESCAPED_UNICODE` و `wp_slash`
+- مهاجرت خودکار محصولات نسخه 1.1 و ترمیم داده‌های خراب
+- تست مجدد قالب‌های پیشخوان و فرانت‌اند
+
+### انتشار
+
+- نسخه‌های 1.1 و 1.2 در GitHub Release منتشر شدند.
+- Release 1.2: `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.2`
 - فایل ZIP با ریشه `Pishgamnoor-plugin/` به Release پیوست شد.
 - GitHub Actions برای Releaseهای بعدی:
   - `.github/workflows/release.yml`

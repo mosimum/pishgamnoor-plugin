@@ -4,7 +4,7 @@ Tags: lighting, 3d, threejs, product studio, pishgamnoor
 Requires at least: 6.0
 Tested up to: 6.7
 Requires PHP: 7.4
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,12 @@ Pishgamnoor Studio یک پلاگین اختصاصی برای صنایع روشن
 
 == Changelog ==
 
+= 1.2 =
+* رفع نمایش نام رنگ‌ها و مشخصات فنی (ترمیم یونیکد متا)
+* مهاجرت خودکار داده‌های 1.1
+* اصلاح ذخیره JSON در متاباکس محصول
+* اصلاح مقدار پیش‌فرض متن هشدار
+
 = 1.1 =
 * انتشار اولیه
 * استودیو سه‌بعدی ۱۰ محصول
@@ -63,6 +69,9 @@ Pishgamnoor Studio یک پلاگین اختصاصی برای صنایع روشن
 * ساختار قابل توسعه
 
 == Upgrade Notice ==
+
+= 1.2 =
+رفع نمایش نام رنگ‌ها و مشخصات فنی و مهاجرت خودکار داده‌های نسخه 1.1.
 
 = 1.1 =
 نسخه پایه پلاگین؛ شامل استودیو سه‌بعدی و مدیریت محصولات.

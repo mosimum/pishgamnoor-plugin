@@ -54,11 +54,85 @@ final class Helper {
         }
 
         if ( is_array( $raw ) ) {
-            return $raw;
+            return self::repair_json_tree( $raw );
         }
 
         $decoded = json_decode( (string) $raw, true );
-        return is_array( $decoded ) ? $decoded : $default;
+
+        // A previously double-encoded value can decode to another JSON string.
+        if ( is_string( $decoded ) ) {
+            $decoded = json_decode( $decoded, true );
+        }
+
+        if ( is_array( $decoded ) ) {
+            return self::repair_json_tree( $decoded );
+        }
+
+        // Last resort: the raw string may contain legacy "uXXXX" sequences.
+        $repaired = self::repair_json_string( (string) $raw );
+        if ( $repaired !== $raw ) {
+            $decoded = json_decode( $repaired, true );
+            if ( is_array( $decoded ) ) {
+                return self::repair_json_tree( $decoded );
+            }
+        }
+
+        return $default;
+    }
+
+    /**
+     * Store JSON in post meta without WordPress stripping the Unicode escapes.
+     *
+     * update_metadata() runs wp_unslash() on the value. Using JSON_UNESCAPED_UNICODE
+     * prevents \uXXXX sequences from becoming literal "uXXXX" text, and wp_slash()
+     * keeps quotes/backslashes intact through the same unslash step.
+     */
+    public static function encode_json_meta( $data ) {
+        $json = wp_json_encode( $data, JSON_UNESCAPED_UNICODE );
+
+        return is_string( $json ) ? wp_slash( $json ) : '';
+    }
+
+    private static function repair_json_tree( $value ) {
+        if ( is_array( $value ) ) {
+            $out = array();
+            foreach ( $value as $key => $item ) {
+                $out[ $key ] = self::repair_json_tree( $item );
+            }
+            return $out;
+        }
+
+        return is_string( $value ) ? self::repair_json_string( $value ) : $value;
+    }
+
+    /**
+     * Repair legacy values where update_post_meta() stripped the backslashes
+     * from JSON \uXXXX escapes, leaving strings such as "u06afu0631...".
+     */
+    private static function repair_json_string( $value ) {
+        if ( ! is_string( $value ) || '' === $value ) {
+            return $value;
+        }
+
+        if ( ! preg_match_all( '/u([0-9a-fA-F]{4})/', $value, $matches ) ) {
+            return $value;
+        }
+
+        // Avoid touching normal text that merely contains "u" + four hex chars.
+        if ( count( $matches[0] ) < 2 ) {
+            return $value;
+        }
+
+        $repaired = preg_replace_callback(
+            '/u([0-9a-fA-F]{4})/',
+            static function ( $match ) {
+                $char = json_decode( '"\\u' . $match[1] . '"' );
+                return is_string( $char ) ? $char : $match[0];
+            },
+            $value
+        );
+
+        return is_string( $repaired ) ? $repaired : $value;
     }
 
     public static function color( $value, $fallback = '#f7ce26' ) {

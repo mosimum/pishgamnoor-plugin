@@ -175,7 +175,8 @@ final class Settings {
             return;
         }
 
-        $saved = get_option( self::OPTION, array() );
+        $previous = $installed;
+        $saved    = get_option( self::OPTION, array() );
         if ( ! is_array( $saved ) ) {
             $saved = array();
         }
@@ -185,6 +186,12 @@ final class Settings {
 
         // A safe idempotent call: seeds only when no products exist.
         Product_Repository::seed_defaults();
+
+        // 1.1 stored JSON meta with escaped Unicode; update_post_meta() then
+        // stripped the backslashes. Repair those legacy rows once.
+        if ( $previous && version_compare( (string) $previous, '1.2', '<' ) ) {
+            Product_Repository::repair_stored_json();
+        }
     }
 
     public static function font_stack( $family = null ) {

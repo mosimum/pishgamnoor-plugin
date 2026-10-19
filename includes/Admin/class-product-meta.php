@@ -160,11 +160,11 @@ final class Product_Meta {
                 );
             }
         }
-        update_post_meta( $post_id, '_pn_finishes', wp_json_encode( Product_Repository::sanitize_finishes( $finishes ) ) );
+        update_post_meta( $post_id, '_pn_finishes', Helper::encode_json_meta( Product_Repository::sanitize_finishes( $finishes ) ) );
 
         // CCT options.
         $ccts = isset( $_POST['pn_ccts'] ) ? (array) wp_unslash( $_POST['pn_ccts'] ) : array();
-        update_post_meta( $post_id, '_pn_ccts', wp_json_encode( Product_Repository::sanitize_ccts( $ccts ) ) );
+        update_post_meta( $post_id, '_pn_ccts', Helper::encode_json_meta( Product_Repository::sanitize_ccts( $ccts ) ) );
 
         // Specs.
         $specs = array();
@@ -180,16 +180,16 @@ final class Product_Meta {
                 $specs[] = array( $label, $value );
             }
         }
-        update_post_meta( $post_id, '_pn_specs', wp_json_encode( Product_Repository::sanitize_specs( $specs ) ) );
+        update_post_meta( $post_id, '_pn_specs', Helper::encode_json_meta( Product_Repository::sanitize_specs( $specs ) ) );
 
         // Optional camera override.
         $camera = $this->sanitize_camera( $_POST['pn_camera'] ?? array() );
-        update_post_meta( $post_id, '_pn_camera', wp_json_encode( $camera ) );
+        update_post_meta( $post_id, '_pn_camera', Helper::encode_json_meta( $camera ) );
 
         // Optional presets JSON (advanced; invalid JSON is ignored).
         $presets_json = isset( $_POST['pn_presets_json'] ) ? wp_unslash( $_POST['pn_presets_json'] ) : '';
         $presets      = json_decode( (string) $presets_json, true );
-        update_post_meta( $post_id, '_pn_presets', wp_json_encode( is_array( $presets ) ? $presets : array() ) );
+        update_post_meta( $post_id, '_pn_presets', Helper::encode_json_meta( is_array( $presets ) ? $presets : array() ) );
     }
 
     private function sanitize_camera( $camera ) {

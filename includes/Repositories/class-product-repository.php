@@ -98,13 +98,44 @@ final class Product_Repository {
             update_post_meta( $post_id, '_pn_url', esc_url_raw( $item['url'] ?? '' ) );
             update_post_meta( $post_id, '_pn_stage', $stage );
             update_post_meta( $post_id, '_pn_image_url', esc_url_raw( $image_url ) );
-            update_post_meta( $post_id, '_pn_finishes', wp_json_encode( self::sanitize_finishes( $item['finishes'] ?? array() ) ) );
-            update_post_meta( $post_id, '_pn_ccts', wp_json_encode( self::sanitize_ccts( $item['ccts'] ?? array() ) ) );
-            update_post_meta( $post_id, '_pn_specs', wp_json_encode( self::sanitize_specs( $item['specs'] ?? array() ) ) );
-            update_post_meta( $post_id, '_pn_camera', wp_json_encode( array() ) );
-            update_post_meta( $post_id, '_pn_presets', wp_json_encode( array() ) );
+            update_post_meta( $post_id, '_pn_finishes', Helper::encode_json_meta( self::sanitize_finishes( $item['finishes'] ?? array() ) ) );
+            update_post_meta( $post_id, '_pn_ccts', Helper::encode_json_meta( self::sanitize_ccts( $item['ccts'] ?? array() ) ) );
+            update_post_meta( $post_id, '_pn_specs', Helper::encode_json_meta( self::sanitize_specs( $item['specs'] ?? array() ) ) );
+            update_post_meta( $post_id, '_pn_camera', Helper::encode_json_meta( array() ) );
+            update_post_meta( $post_id, '_pn_presets', Helper::encode_json_meta( array() ) );
             update_post_meta( $post_id, '_pn_enabled', '1' );
             update_post_meta( $post_id, '_pn_order', absint( $item['order'] ?? 0 ) );
+        }
+    }
+
+    /**
+     * Repair JSON meta written by 1.1, where update_post_meta() stripped the
+     * backslashes from JSON \uXXXX escapes (e.g. "u06af" instead of "گ").
+     * Runs once during the 1.2 upgrade and is safe to run repeatedly.
+     */
+    public static function repair_stored_json() {
+        $posts = get_posts(
+            array(
+                'post_type'      => Product::POST_TYPE,
+                'post_status'    => 'any',
+                'posts_per_page' => -1,
+                'fields'         => 'ids',
+            )
+        );
+
+        $keys = array( '_pn_finishes', '_pn_ccts', '_pn_specs', '_pn_camera', '_pn_presets' );
+
+        foreach ( $posts as $post_id ) {
+            foreach ( $keys as $key ) {
+                $raw = get_post_meta( $post_id, $key, true );
+
+                if ( ! is_array( $raw ) && ( ! is_string( $raw ) || '' === trim( $raw ) ) ) {
+                    continue;
+                }
+
+                $decoded = Helper::get_json_meta( $post_id, $key, array() );
+                update_post_meta( $post_id, $key, Helper::encode_json_meta( $decoded ) );
+            }
         }
     }
 
