@@ -484,6 +484,7 @@ http://127.0.0.1:8077/
 - **نسخه پایه:** `1.1`
 - **توسعه‌دهنده:** Mostafa Moosavi
 - **مخزن GitHub:** `https://github.com/mosimum/pishgamnoor-plugin`
+- **Release ???? 1.1:** `https://github.com/mosimum/pishgamnoor-plugin/releases/tag/v1.1`
 - **شورت‌کد:** `[pishgamnoor_studio]`
 - **حداقل وردپرس:** 6.0
 - **حداقل PHP:** 7.4
