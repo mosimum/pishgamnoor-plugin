@@ -20,6 +20,7 @@ final class Admin {
 
     public function __construct() {
         add_action( 'admin_init', array( Settings::class, 'register' ) );
+        add_action( 'admin_init', array( $this, 'block_add_product' ) );
         add_action( 'admin_menu', array( $this, 'menu' ) );
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue' ) );
         add_action( 'admin_notices', array( $this, 'notices' ) );
@@ -66,13 +67,33 @@ final class Admin {
             'edit.php?post_type=' . Product::POST_TYPE
         );
 
-        add_submenu_page(
-            'pishgamnoor',
-            'افزودن محصول',
-            'افزودن محصول',
-            'edit_posts',
-            'post-new.php?post_type=' . Product::POST_TYPE
-        );
+        if ( Product::product_creation_enabled() ) {
+            add_submenu_page(
+                'pishgamnoor',
+                'افزودن محصول',
+                'افزودن محصول',
+                'edit_posts',
+                'post-new.php?post_type=' . Product::POST_TYPE
+            );
+        }
+    }
+
+    /**
+     * Adding products is temporarily closed. Redirect a direct "Add New"
+     * request to the existing product list instead of showing an editable form.
+     */
+    public function block_add_product() {
+        global $pagenow;
+
+        if (
+            'post-new.php' === $pagenow
+            && isset( $_GET['post_type'] )
+            && Product::POST_TYPE === sanitize_key( wp_unslash( $_GET['post_type'] ) )
+            && ! Product::product_creation_enabled()
+        ) {
+            wp_safe_redirect( admin_url( 'edit.php?post_type=' . Product::POST_TYPE ) );
+            exit;
+        }
     }
 
     public function enqueue( $hook ) {
@@ -150,9 +171,14 @@ final class Admin {
                 ?>
                 <div class="notice notice-warning pn-admin-notice">
                     <p>
-                        هنوز محصولی منتشر نشده است. برای نمایش شبیه‌ساز،
-                        <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . Product::POST_TYPE ) ); ?>">یک محصول اضافه کنید</a>
-                        یا پلاگین را دوباره فعال کنید تا محصولات پیش‌فرض ساخته شوند.
+                        <?php if ( Product::product_creation_enabled() ) : ?>
+                            هنوز محصولی منتشر نشده است. برای نمایش شبیه‌ساز،
+                            <a href="<?php echo esc_url( admin_url( 'post-new.php?post_type=' . Product::POST_TYPE ) ); ?>">یک محصول اضافه کنید</a>
+                            یا پلاگین را دوباره فعال کنید تا محصولات پیش‌فرض ساخته شوند.
+                        <?php else : ?>
+                            هنوز محصولی منتشر نشده است. افزودن محصول جدید موقتاً از داشبورد غیرفعال است؛
+                            پلاگین را دوباره فعال کنید تا محصولات پیش‌فرض ساخته شوند.
+                        <?php endif; ?>
                     </p>
                 </div>
                 <?php

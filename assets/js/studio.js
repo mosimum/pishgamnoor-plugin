@@ -747,37 +747,18 @@ function buildTheta() {
     addBody(g, bodyMesh);
     c.add(bodyMesh);
 
-    // white diffuser band on the underside, close to the inner edge
-    const bandGeo = new THREE.ExtrudeGeometry(
-      crescentShape(1.0, 1.17, start, end),
-      { depth: 0.006, bevelEnabled: false, curveSegments: 72 }
-    );
-    bandGeo.translate(0, 0, -0.003);
+    // One continuous diffuser tube for the whole C. A single emissive torus
+    // avoids the broken/dashed glow produced by stacked bands and lips. Keep
+    // it fully below the body shell so the shell cannot clip it into segments.
+    const bandMat = ledMaterial('#ffb46b', 2.1);
+    bandMat.side = THREE.DoubleSide;
+    const bandGeo = new THREE.TorusGeometry(1.085, 0.048, 20, 240, end - start);
+    bandGeo.rotateZ(start);
     bandGeo.rotateX(-Math.PI / 2);
-    const band = new THREE.Mesh(bandGeo, ledMaterial('#ffb46b', 1.7));
-    band.position.y = -0.067;
-    addLed(g, band, 1.7);
+    const band = new THREE.Mesh(bandGeo, bandMat);
+    band.position.y = -0.16;
+    addLed(g, band, 2.1);
     c.add(band);
-
-    // glowing inner lip
-    const torusGeo = new THREE.TorusGeometry(inner + 0.018, 0.028, 10, 160, end - start);
-    torusGeo.rotateZ(start);
-    torusGeo.rotateX(-Math.PI / 2);
-    const torus = new THREE.Mesh(torusGeo, ledMaterial('#ffb46b', 2.0));
-    torus.position.y = -0.066;
-    addLed(g, torus, 2.0);
-    c.add(torus);
-
-    // vertical inner diffuser wall: this is what reads as a broad glow from below
-    const wallMat = ledMaterial('#ffb46b', 1.8);
-    wallMat.side = THREE.DoubleSide;
-    const innerWall = new THREE.Mesh(
-      new THREE.CylinderGeometry(inner + 0.022, inner + 0.022, 0.09, 80, 1, true, start + Math.PI / 2, end - start),
-      wallMat
-    );
-    innerWall.position.y = -0.028;
-    addLed(g, innerWall, 1.8);
-    c.add(innerWall);
 
     // soft light under the C
     const p = new THREE.PointLight('#ffb46b', 2.4, 4.2, 2);
@@ -789,10 +770,12 @@ function buildTheta() {
     return c;
   };
 
-  // one large C plus two smaller ones, like the reference hallway
-  addC(0.92, 0, 0, 2.8, 0.1);
-  addC(0.46, 1.15, 0.7, 2.8, -0.35);
-  addC(0.34, -1.0, 0.95, 2.8, 0.45);
+  // Three independent C fixtures: keep clear gaps between the outlines so the
+  // bodies and their diffusers never intersect (the catalogue shows separate
+  // modules, not a chain of overlapping rings).
+  addC(0.86, 0, 0, 2.8, 0.1);
+  addC(0.42, 1.82, 0.38, 2.8, -0.28);
+  addC(0.34, -1.82, -0.32, 2.8, 0.35);
 
   const wash = floorGlow(3.6, 2.8, '#ffb46b', 0.1);
   wash.position.set(0, 0.013, 0.25);
@@ -817,12 +800,14 @@ function buildOmega() {
   const g = makeGroup();
   const body = bodyMaterial('#1b1c22', 0.34, 0.56);
 
-  const bar = rbox(0.09, 2.35, 0.09, 0.012, body);
+  // The real Omega stand uses a round extruded pole. A round profile also
+  // keeps the reflected highlight continuous instead of reading as a flat bar.
+  const bar = cylinder(0.045, 0.045, 2.35, 32, body);
   bar.position.set(0, 1.2, 0);
   addBody(g, bar);
   g.add(bar);
 
-  const topCap = rbox(0.1, 0.028, 0.1, 0.006, body);
+  const topCap = cylinder(0.05, 0.05, 0.028, 24, body);
   topCap.position.set(0, 2.39, 0);
   addBody(g, topCap);
   g.add(topCap);
@@ -835,7 +820,7 @@ function buildOmega() {
   addBody(g, baseZ);
   g.add(baseX, baseZ);
 
-  const footCap = rbox(0.11, 0.05, 0.11, 0.01, body);
+  const footCap = cylinder(0.052, 0.052, 0.05, 24, body);
   footCap.position.set(0, 0.034, 0);
   addBody(g, footCap);
   g.add(footCap);

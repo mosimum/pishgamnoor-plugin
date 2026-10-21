@@ -46,6 +46,18 @@ final class Product {
         );
     }
 
+    /**
+     * Product creation is temporarily closed from the WordPress dashboard.
+     * Existing products stay editable; a future release can re-enable the
+     * add-new screen with:
+     * add_filter( 'pishgamnoor_studio_enable_product_creation', '__return_true' );
+     *
+     * @return bool
+     */
+    public static function product_creation_enabled() {
+        return (bool) apply_filters( 'pishgamnoor_studio_enable_product_creation', false );
+    }
+
     public static function register() {
         $labels = array(
             'name'                  => 'محصولات شبیه‌ساز',
@@ -81,6 +93,9 @@ final class Product {
                 'rewrite'             => false,
                 'capability_type'     => 'post',
                 'map_meta_cap'        => true,
+                'capabilities'        => self::product_creation_enabled()
+                    ? array()
+                    : array( 'create_posts' => 'do_not_allow' ),
                 'has_archive'         => false,
                 'hierarchical'        => false,
                 'menu_icon'           => 'dashicons-lightbulb',
